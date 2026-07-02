@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Injeta o Widget com o novo Ícone SVG (sem fundo nenhum!)
     const widgetHTML = `
         <div id="accessibility-widget">
             <button id="a11y-btn" aria-label="Menu de Acessibilidade" title="Acessibilidade">
@@ -53,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.body.insertAdjacentHTML('beforeend', widgetHTML);
 
-    // 2. Lógica das Funções
     let currentFontSize = 100;
     let readerActive = false;
     let legendActive = false;
@@ -63,15 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const tooltip = document.getElementById("a11y-tooltip");
     const fontDisplay = document.getElementById("a11y-font-display");
 
-    // Abrir/Fechar Menu
     btn.addEventListener("click", () => menu.classList.toggle("active"));
 
-    // Tema
     document.getElementById("a11y-theme").addEventListener("click", () => {
         document.body.classList.toggle("dark-theme");
     });
 
-    // Fonte - Aumentar e Diminuir (Agora afeta o site TODO, incluindo os textos p)
     document.getElementById("a11y-font-up").addEventListener("click", () => {
         if (currentFontSize < 200) currentFontSize += 10;
         updateFontSize();
@@ -83,22 +78,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function updateFontSize() {
-        // ESSA é a linha mágica que faz todos os textos baseados em "rem" aumentarem/diminuírem:
         document.documentElement.style.fontSize = currentFontSize + "%"; 
         fontDisplay.innerText = currentFontSize + "%";
     }
 
-    // Fonte Family
     document.getElementById("a11y-font-family").addEventListener("change", (e) => {
         document.documentElement.style.setProperty('--font-family', e.target.value);
     });
 
-    // Saturação
     document.getElementById("a11y-saturation").addEventListener("change", (e) => {
         document.body.style.filter = `saturate(${e.target.value})`;
     });
 
-    // Leitor de Texto
     const readerBtn = document.getElementById("a11y-reader");
     readerBtn.addEventListener("click", () => {
         readerActive = !readerActive;
@@ -118,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Legenda no Mouse
     const legendBtn = document.getElementById("a11y-legend");
     legendBtn.addEventListener("click", () => {
         legendActive = !legendActive;

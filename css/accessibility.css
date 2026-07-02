@@ -6,8 +6,6 @@
     font-family: sans-serif;
 }
 
-
-/* Botão 100% transparente com o novo Ícone */
 #a11y-btn {
     background: transparent !important;
     background-color: transparent !important;
@@ -17,9 +15,7 @@
     -webkit-appearance: none;
     appearance: none;
     
-    /* AQUI ESTÁ A MÁGICA: */
-    color: #ffffff; /* Cor branca para o ícone aparecer bem */
-    
+    color: #ffffff; /* Ícone branco */
     cursor: pointer;
     transition: transform 0.2s, filter 0.3s;
     display: flex;
@@ -27,20 +23,16 @@
     align-items: center;
     padding: 0;
     
-    /* Uma sombra escura no desenho para ele não sumir quando você rolar para a parte branca do site */
     filter: drop-shadow(0px 2px 6px rgba(0,0,0,0.6)); 
 }
 
-/* Quando mudar para o tema escuro, a gente muda a cor do ícone para o Azul Primário para destacar */
 body.dark-theme #a11y-btn {
     color: var(--primary-color); 
     filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.8));
 }
 
-#a11y-btn:hover {
-    transform: scale(1.15);
-}
-/* O Menu de Acessibilidade */
+#a11y-btn:hover { transform: scale(1.15); }
+
 #a11y-menu {
     display: none;
     position: absolute;
@@ -53,6 +45,10 @@ body.dark-theme #a11y-btn {
     width: 300px;
     padding: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    
+    /* Permite fazer scroll dentro do menu se o ecrã for pequeno */
+    max-height: 75vh;
+    overflow-y: auto;
 }
 
 #a11y-menu.active {
@@ -104,4 +100,18 @@ body.dark-theme .a11y-group { border-bottom: 1px solid rgba(255,255,255,0.1); }
     pointer-events: none;
     z-index: 10000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Responsividade do Menu de Acessibilidade no Telemóvel */
+@media (max-width: 480px) {
+    #accessibility-widget { top: 10px; right: 10px; }
+    #a11y-btn { font-size: 45px; }
+    #a11y-menu {
+        width: 85vw;
+        max-width: 280px;
+        padding: 15px;
+        right: -5px;
+    }
+    .a11y-controls { gap: 5px; }
+    .a11y-controls button { width: 40px; }
 }
