@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco - Blog ODS 8</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/accessibility.css">
+</head>
+<body>
+    <header>
+        <h1>Progresso ODS 8</h1>
+        <nav aria-label="Menu principal">
+            <a href="../index.html">Início</a>
+            <a href="../pages/sobre.html">Sobre a ODS 8</a>
+            <a href="../pages/acoes.html">Ações Reais</a>
+            <a href="../pages/contato.html" style="color: var(--primary-color);">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-card">
+            <h2 class="title-line">Fale Conosco</h2>
+            <p>A colaboração é o primeiro passo para a mudança social. Tem ideias inovadoras, pretende sugerir pautas sobre o Trabalho Decente e Crescimento Económico, ou partilhar uma iniciativa da sua comunidade? Preencha o formulário abaixo e a nossa equipa entrará em contacto.</p>
+            
+            <form id="formContato">
+                <div class="form-group">
+                    <label for="nome">O Seu Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">O Seu E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Mensagem / Descrição do Projeto:</label>
+                    <textarea id="descricao" name="descricao" rows="6" placeholder="Escreva aqui a sua mensagem de forma detalhada..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar Mensagem</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Blog ODS 8. Todos direitos Reservados. <a href="https://github.com/Joyscout" target="_blank">Miguel no GitHub</a>.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Lógica simples para limpar o formulário e dar feedback ao utilizador
+        document.getElementById('formContato').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            alert("A sua mensagem foi recebida com sucesso! Obrigado pelo seu interesse e colaboração com a ODS 8.");
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>
